@@ -1,10 +1,34 @@
-<!--Reminder:
-For this project and all remaining projects, you should have a file called .gitignore in your project directory. In that file you should have a line that says "/node_modules" without the quotes. This tells git to ignore all your node module dependencies when it pushes code to your repo.
-You should also have a file called package.json in your project directory. Please make sure this file gets pushed to your Github repo with all your other project files. This file is a manifest or list of all dependencies that your project requires to function properly. With this file someone can clone your repo and then run "npm install" in the project directory and they will automatically download all the node module dependencies needed.
-
-Coding Steps:
+<!-- Coding Steps:
 Using HTML, Bootstrap, and JavaScript create a single page website that contains the following:
 A Bootstrap styled table representing your choice of data.
 A Bootstrap styled form that allows a user to add a new row to the table when clicking on submit.
-//possible idea: take the wrestling game from week 4?
--->
+//possible idea: take the wrestling game from week 5 or musical instrument -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 10 Project- AEW Quiz</title>
+    
+</head>
+<body>
+    <!-- This will be a way to show and hide questions, buttons to navigate the quiz -->
+    <!-- this quiz-container will help us position the questions as layers to show and hide -->
+    <div class="quiz-container">
+    <!-- this will hold the quiz -->
+        <div id="quiz"></div>
+    </div>
+<!-- these buttons will be to go back and forward in the quiz -->
+    <button id="previous">Previous Question</button>
+    <button id="next">Next Question</button>
+<!-- this will be to submit the quiz -->
+    <button id="submit">Submit Quiz</button>
+
+<!-- This will be to display the results -->
+<div id="results"></div>
+
+<script src="quiz.js"></script>
+</body>
+</html>
