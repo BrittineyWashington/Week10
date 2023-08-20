@@ -17,32 +17,36 @@ const submitButton = document.getElementById('submit');
 //these are listed in order of how they are added, if want them presented in a sorted way will have to sort the array of objects in JS. 
 const myQuestions = [
     {
-        question: "Who invented JavaScript?",
+        question: "1. Who is the owner of AEW?",
+
         answers: {
-            a: "Douglas Crockford",
-            b: "Sheryl Sandberg",
-            c: "Brendan Eich"
+            a: "Nick Khan",
+            b: "Tony Khan",
+            c: "Genghis Khan"
         },
-        correctAnswer: "c"
+        correctAnswer: "b"
     },
+
     {
-        question: "Which one of these is a JavaScript package manager?", 
+        question: "2. Which show airs on Wednesday Night?", 
+
         answers: {
-            a: "Node.js",
-            b: "TypeScript",
-            c: "npm"
+            a: "Collision",
+            b: "Rampage",
+            c: "Dynamite"
         }, 
         correctAnswer: "c"
     },
+
     {
-        question: "Which tool can you use to ensure code quality?", 
+        question: "3. When was AEW created?", 
+
         answers: {
-            a: "Angular",
-            b: "jQuery",
-            c: "RequireJS",
-            d: "ESLint"
+            a: "2019",
+            b: "2022",
+            c: "2016",
     },
-        correctAnswer: "d"
+        correctAnswer: "a"
     }
 ];
 
@@ -78,8 +82,10 @@ myQuestions.forEach( //the code we want to run for each question goes here
     //add this question and it's answer to the output
     //by using the join we can put together the list of answers into one string that can go to the answers div
         output.push(
-           `<div class="question"> ${currentQuestion.question} </div>
-           <div class="answers">${answers.join('')} </div>`
+           `<div class="slide">
+           <div class="question"> ${currentQuestion.question} </div>
+           <div class="answers">${answers.join('')} </div>
+           </div>`
         );
     }
 );

@@ -1,0 +1,146 @@
+<!-- Coding Steps:
+Using HTML, Bootstrap, and JavaScript create a single page website that contains the following:
+A Bootstrap styled table representing your choice of data.
+A Bootstrap styled form that allows a user to add a new row to the table when clicking on submit.
+//possible idea: take the wrestling game from week 5 or musical instrument 
+Week 10 Coding Assignment: AEW Wrestling Stats
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 10 AEW Wrestling Roster</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<!-- Tips: Text left-align and Numbers right-align
+ Add a scroll either horizontally or vertically, lock the first column for comparison 
+ Add a search box feature, user select row, keep simple avoid too many fonts, colors or styles
+ Add hover or selection effects-->
+
+<body class="bg-dark">
+
+<h1 class="container text-center text-warning pt-5">ALL ELITE WRESTLING (AEW) Roster</h1>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-9 mx-auto">
+            <div class="card rounded-0.5 border-5 shadow-black">
+                <div class="card-body p-5 bg-primary">
+                    
+                      <!-- Bootstrap table -->
+                    <div class="table-responsive">
+                        <table class="table table-secondary table-hover table-sm table-bordered border-dark caption-top">
+                            <caption class="text-dark">List of AEW Champions</caption>
+                            <thead>
+                                <tr class="table-active">
+                                    <th scope="col">#</th>
+                                    <th scope="col">Full Name</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Wins/Losses</th>
+                                    <th scope="col text-right"># of Matches</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-group-divider">
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Orange Cassidy</td>
+                                    <td>AEW International Champion</td>
+                                    <td>W: 37 - L: 4</td>
+                                    <td>157</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Hikaru Shida</td>
+                                    <td>AEW Women's World Champion</td>
+                                    <td>W:10 - L:2 </td>
+                                    <td>12</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Add rows button -->
+                    <a class="btn btn-danger rounded-0 btn-block" id="addRow" href="#">Add new row</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- This will be a way to show and hide questions, buttons to navigate the quiz -->
+    <!-- this quiz-container will help us position the questions as layers to show and hide -->
+    
+    <h2 class="container text-center text-danger p-2 shadow">AEW FUN TRIVIA</h2>
+        <div class="container">
+            <div class="quiz-container text-center fs-5 bg-warning">
+        <!-- this will hold the quiz -->
+            <div id="quiz"></div>
+        </div>
+
+    <!-- these buttons will be to go back and forward in the quiz -->
+    <div class="text-center">
+    <button id="previous">Previous Question</button>
+    <button id="next">Next Question</button>
+    <!-- this will be to submit the quiz -->
+    <button id="submit">Submit Quiz</button>
+
+    <!-- This will be to display the results -->
+        <div id="results"></div>
+<!-- need a reset button once the quiz is taken or the results need to be shown with a reset button -->
+    </div>
+
+<!-- This creates a form group below -->
+<h4 class="text-center text-primary pt-5">Contact Us</h3>
+<div class="card m-5 bg-light rounded-0.5 border-5 shadow">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm">
+                <div class="form-group">
+                    <!-- this styling comes from bootstrap -->
+                      <label for="first-name">First Name</label>  
+                        <input type="text" class="form-control" id="first-name">
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="form-group">
+                    <label for="last-name">Last Name</label>  
+                      <input type="text" class="form-control" id="last-name">
+              </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <div class="form-group">
+                    <label for="email-address">Email Address</label>  
+                      <input type="text" class="form-control" id="email-address" placeholder="">
+              </div>
+            </div>
+        </div> <br>
+        <div>
+        <button id="add" class="btn btn-danger form-control">Create</button>
+        </div>
+    </div>
+</div>
+
+
+<script src="aew.js"></script>
+<script src="quiz.js"></script>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+<footer class="text-center text-white">
+    <p>Brittiney Washington ©️2023</p>
+</footer>
+
+    
+</body>
+</html>
+
+
