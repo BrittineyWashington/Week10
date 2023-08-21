@@ -14,6 +14,7 @@ Week 10 Coding Assignment: AEW Wrestling Stats
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Week 10 AEW Wrestling Roster</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <!-- Tips: Text left-align and Numbers right-align
@@ -23,26 +24,24 @@ Week 10 Coding Assignment: AEW Wrestling Stats
 
 <body class="bg-dark">
 
-<h1 class="container text-center text-warning pt-5">ALL ELITE WRESTLING (AEW) Roster</h1>
+<h1 class="container text-center text-warning p-3 shadow">ALL ELITE WRESTLING (AEW) Roster</h1>
 
 <div class="container py-5">
     <div class="row">
         <div class="col-lg-9 mx-auto">
             <div class="card rounded-0.5 border-5 shadow-black">
                 <div class="card-body p-5 bg-primary">
-                    
                       <!-- Bootstrap table -->
                     <div class="table-responsive">
                         <table class="table table-secondary table-hover table-sm table-bordered border-dark caption-top">
-                            <caption class="text-dark">List of AEW Champions</caption>
+                            <caption class="text-dark fst-italic">List of AEW Champions '2023</caption>
                             <thead>
-                                <tr class="table-active">
+                                <tr class="table-active fw-bold">
                                     <th scope="col">#</th>
                                     <th scope="col">Full Name</th>
                                     <th scope="col">Title</th>
-                                    <th scope="col">Wins/Losses</th>
+                                    <th scope="col">Wins - Losses</th>
                                     <th scope="col text-right"># of Matches</th>
-                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody class="table-group-divider">
@@ -52,7 +51,6 @@ Week 10 Coding Assignment: AEW Wrestling Stats
                                     <td>AEW International Champion</td>
                                     <td>W: 37 - L: 4</td>
                                     <td>157</td>
-                                    <td></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">2</th>
@@ -60,14 +58,34 @@ Week 10 Coding Assignment: AEW Wrestling Stats
                                     <td>AEW Women's World Champion</td>
                                     <td>W:10 - L:2 </td>
                                     <td>12</td>
-                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>MJF</td>
+                                    <td>AEW World Champion</td>
+                                    <td>W:9 - L:2 - D:1</td>
+                                    <td>12</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>FTR</td>
+                                    <td>AEW World Tag Team Champions</td>
+                                    <td>W:8 - L:3 </td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td>House of Black</td>
+                                    <td>AEW World Trios Champions</td>
+                                    <td>W:10 - L:0 </td>
+                                    <td>10</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
 
-                    <!-- Add rows button -->
-                    <a class="btn btn-danger rounded-0 btn-block" id="addRow" href="#">Add new row</a>
+                    <!-- Add rows button
+                    <a class="btn btn-danger rounded-0 btn-block" id="addRow" href="#">Add new row</a> -->
                 </div>
             </div>
         </div>
@@ -76,70 +94,72 @@ Week 10 Coding Assignment: AEW Wrestling Stats
 
 <!-- This will be a way to show and hide questions, buttons to navigate the quiz -->
     <!-- this quiz-container will help us position the questions as layers to show and hide -->
-    
-    <h2 class="container text-center text-danger p-2 shadow">AEW FUN TRIVIA</h2>
+    <h2 class="container text-center text-danger p-2 shadow fw-bold">AEW FUN TRIVIA</h2>
         <div class="container">
-            <div class="quiz-container text-center fs-5 bg-warning">
+            <div class="quiz-container text-center pt-5 fs-5 bg-warning border border-light">
         <!-- this will hold the quiz -->
             <div id="quiz"></div>
-        </div>
-
     <!-- these buttons will be to go back and forward in the quiz -->
+    <!-- This will be to display the results -->
+    <div id="results" class="text-danger fs-2 pt-5"></div>
+    </div>
     <div class="text-center">
     <button id="previous">Previous Question</button>
     <button id="next">Next Question</button>
     <!-- this will be to submit the quiz -->
     <button id="submit">Submit Quiz</button>
-
-    <!-- This will be to display the results -->
-        <div id="results"></div>
-<!-- need a reset button once the quiz is taken or the results need to be shown with a reset button -->
     </div>
+    <!-- need a reset button once the quiz is taken or the results need to be shown with a reset button -->
+        <!-- <button id="reset">Reset Quiz</button> -->
+    
+
 
 <!-- This creates a form group below -->
-<h4 class="text-center text-primary pt-5">Contact Us</h3>
 <div class="card m-5 bg-light rounded-0.5 border-5 shadow">
     <div class="card-body">
         <div class="row">
+            <h3 class="text-center text-primary fw-bold pb-2 text-decoration-underline">Contact Us</h3>
             <div class="col-sm">
-                <div class="form-group">
+                <div class="form-group text-primary">
                     <!-- this styling comes from bootstrap -->
                       <label for="first-name">First Name</label>  
                         <input type="text" class="form-control" id="first-name">
                 </div>
             </div>
             <div class="col-sm">
-                <div class="form-group">
+                <div class="form-group text-primary">
                     <label for="last-name">Last Name</label>  
                       <input type="text" class="form-control" id="last-name">
               </div>
             </div>
         </div>
-        <div class="row">
             <div class="col-sm">
-                <div class="form-group">
+                <div class="form-group text-primary">
                     <label for="email-address">Email Address</label>  
                       <input type="text" class="form-control" id="email-address" placeholder="">
               </div>
             </div>
-        </div> <br>
-        <div>
-        <button id="add" class="btn btn-danger form-control">Create</button>
+            <div class="col-sm">
+            <div class="form-group">
+                <label for="text-area"></label>
+                <textarea class="form-control text-primary" id="text-area" rows="3" placeholder="Comment Here..."></textarea>
+            </div> <br>
+       
+        <button type="button" class="btn btn-danger">Submit</button>
         </div>
-    </div>
-</div>
+    </div>   
+</div> 
 
 
-<script src="aew.js"></script>
+
+<!-- <script src="aew.js"></script> -->  <!--Will add this once get the add button working-->
 <script src="quiz.js"></script>
 <script src="node_modules/jquery/dist/jquery.js"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
 
-<footer class="text-center text-white">
+<footer class="text-center text-white shadow p-2">
     <p>Brittiney Washington ©️2023</p>
-</footer>
-
-    
+</footer>   
 </body>
 </html>
 

@@ -1,11 +1,3 @@
-// We can then select these HTML elements and store references to them in variables like so:
-
-const quizContainer = document.getElementById('quiz');
-
-const resultsContainer = document.getElementById('results');
-
-const submitButton = document.getElementById('submit');
-
 // need a way to build a quiz, show results, and put it all together. We can start by laying out our functions, and we’ll fill them in as we go:
 
 //Displaying the Quiz Questions
@@ -13,44 +5,9 @@ const submitButton = document.getElementById('submit');
 //array to hold all of the questions that make up the quiz. 
     //-using an array will make the questions easier to iterate over
 
-//switch up my questions to trivia: Office, Friends, AEW
-//these are listed in order of how they are added, if want them presented in a sorted way will have to sort the array of objects in JS. 
-const myQuestions = [
-    {
-        question: "1. Who is the owner of AEW?",
+//THIS IS WHERE THE CODE BEGINS!!!!!!!!
 
-        answers: {
-            a: "Nick Khan",
-            b: "Tony Khan",
-            c: "Genghis Khan"
-        },
-        correctAnswer: "b"
-    },
-
-    {
-        question: "2. Which show airs on Wednesday Night?", 
-
-        answers: {
-            a: "Collision",
-            b: "Rampage",
-            c: "Dynamite"
-        }, 
-        correctAnswer: "c"
-    },
-
-    {
-        question: "3. When was AEW created?", 
-
-        answers: {
-            a: "2019",
-            b: "2022",
-            c: "2016",
-    },
-        correctAnswer: "a"
-    }
-];
-
-
+(function () { 
 //createQuiz = buildQuiz
 //this will run immediately 
 //this will store the HTML output
@@ -94,8 +51,6 @@ myQuestions.forEach( //the code we want to run for each question goes here
     quizContainer.innerHTML = output.join(''); 
 }
 
-
-
 //displayResults = showResults 
 //this will run when our user clicks the submit button 
 //this will loop over the answers, check them, and show results
@@ -133,13 +88,122 @@ function displayResults() {
         //show number of correct answers out of total
         resultsContainer.innerHTML = `${numberCorrect} out of ${myQuestions.length}`;
 }
+
+
+function showSlide(i) {
+    slides[currentSlide].classList.remove('active-slide');//hides the current slide by removing the active-slide class
+    slides[i].classList.add('active-slide');//show the new slide by adding the active-slide class
+    currentSlide = i;//updt the current slide number
+
+    if(currentSlide === 0) {//if on first slide hide previous slide button otherwise show
+        previousButton.style.display = 'none';
+    }
+    else {
+        previousButton.style.display = 'inline-block';
+    }
+
+    if(currentSlide === slides.length-1) {
+        nextButton.style.display = 'none';
+        submitButton.style.display = 'inline-block'; 
+    }
+    else {
+        nextButton.style.display = 'inline-block'; 
+        submitButton.style.display = 'none'; 
+    }
+
+    // if (currentSlide === slides.length-1) {
+    //     nextButton.style.display = 'none'
+    //     submitButton.style.display = 'inline-block';
+    // }
+    // else {
+    //     submitButton.style.display = 'none';
+    //     resetButton.style.display = 'inline-block';
+    // }
+}
+
+
+//these will be the functions that get the navigation buttons working
+function showNextSlide() {
+    showSlide(currentSlide + 1); 
+}
+
+function showPreviousSlide() {
+    showSlide(currentSlide -1);
+}
+
+// function showResetButton() {
+//     showSlide(currentSlide(0));  
+// }
+// We can then select these HTML elements and store references to them in variables like so:
+
+const quizContainer = document.getElementById('quiz');
+
+const resultsContainer = document.getElementById('results');
+
+const submitButton = document.getElementById('submit');
+
+//switch up my questions to trivia: Office, Friends, AEW
+//these are listed in order of how they are added, if want them presented in a sorted way will have to sort the array of objects in JS. 
+const myQuestions = [
+    {
+        question: "1. Who is the owner of AEW?",
+
+        answers: {
+            a: "Nick Khan",
+            b: "Tony Khan",
+            c: "Genghis Khan"
+        },
+        correctAnswer: "b"
+    },
+
+    {
+        question: "2. Which show airs on Wednesday Night?", 
+
+        answers: {
+            a: "Collision",
+            b: "Rampage",
+            c: "Dynamite"
+        }, 
+        correctAnswer: "c"
+    },
+
+    {
+        question: "3. When was AEW created?", 
+
+        answers: {
+            a: "2019",
+            b: "2022",
+            c: "2016",
+    },
+        correctAnswer: "a"
+    }
+];
+
+
+// a reset button would set the above code to this resultsContainer.innerHTML = ''; 
 //what the above code does: find selected answer in HTML, handle what happens if answer is correct, handle what happens if answer is wrong
 
 
-//display quiz right away
+//display quiz right away//kicks things off
 createQuiz(); 
 
-//on submit, show results
-submitButton.addEventListener('click', displayResults); 
+//this adds pagination
+const previousButton = document.getElementById("previous");
+const nextButton = document.getElementById("next");
+const slides = document.querySelectorAll(".slide");//.slide isn't in the html it's in the css file
+let currentSlide = 0;
+// const resetButton = document.getElementById("reset");
 
+//show the first question(slide)
+showSlide(currentSlide);
+
+//on submit, show results
+submitButton.addEventListener('click', displayResults);
+previousButton.addEventListener('click', showPreviousSlide);
+nextButton.addEventListener('click', showNextSlide);
+// resetButton.addEventListener('click', showResetButton);
+
+//reset results after shown
+
+})();
 
